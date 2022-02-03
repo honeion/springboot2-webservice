@@ -1,0 +1,38 @@
+//Plugin 의존성 관리를 위한 설정
+buildscript {
+    ext { //build.gradle에서 사용하는 전역변수 설정
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        //jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management' // 스프링 부트 의존성들을 관리해주는 플러그인
+
+group 'com.honeion.study'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+// 각종 의존성(라이브러리)들을 어떤 원격 저장소에서 받을지 선언
+// 기본적으로는 mavenCentral, 라이브러리 업로드 난이도때문에 jcenter도 많이 썼다고 하나,
+// jcenter는 2022.02.01 이후 deprecated
+// jcenter에서 악성코드가 포함된 라이브러리 패키지가 등록된 사고가 있어 사고방지 대책을 세우지 못하고
+// 2022.02.01 라이브러리 다운로드 서비스 중지인듯.
+repositories {
+    mavenCentral()
+}
+
+//프로젝트 개발에 필요한 의존성들을 선언
+//compile-> implementation, testCompile-> testImplementation
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
