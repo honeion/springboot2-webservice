@@ -9,3 +9,9 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 }
+
+/*
+h2 테스트 확인
+main 메소드 실행 후 http://localhost:8080/h2-console
+JDBC URL : jdbc:h2:mem:testdb
+ */
