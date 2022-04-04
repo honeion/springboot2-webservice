@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter //Getter 생성 Entity 클래스에서 Setter를 만들지 말고 필요한 경우에만 따로 작성
 @NoArgsConstructor //기본 생성자 추가
 @Entity //테이블과 링크될 클래스 ex)SalesManger.java->sales_manger table
-public class Posts {
+public class Posts extends BaseTimeEntity{
 
     @Id //PK fields
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK 생성 규칙 IDENTITY -> auto_increment
